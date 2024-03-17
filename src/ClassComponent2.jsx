@@ -2,12 +2,14 @@ import React from 'react';
 
 class ClassComponent2 extends React.Component {
     render() {
+        const { obj, arr, subSecondComponent } = this.props;
+
         return (
             <div>
-                {this.props.obj.name} <br />
-                {this.props.obj.age} <br />
-                {this.props.arr} <br />
-                {this.props.subSecondComponent()}
+                {obj.name} <br />
+                {obj.age} <br />
+                {arr} <br />
+                {subSecondComponent()}
             </div>
         );
     }
