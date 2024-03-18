@@ -3,7 +3,7 @@ const { useState } = require('react');
 const TextToggle = () => {
     const [isVisible, setIsVisible] = useState(false);
 
-    const toggleText = () => setIsVisible(!isVisible);
+    const toggleText = () => setIsVisible((isVisible) => !isVisible);
 
     return (
         <div>

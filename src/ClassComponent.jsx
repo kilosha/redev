@@ -11,7 +11,7 @@ class ClassComponent extends React.Component {
     };
 
     changeVisibility = () => {
-        this.setState({ isVisible: !this.state.isVisible });
+        this.setState((state) => ({ isVisible: !state.isVisible }));
     };
 
     handleInputChange = (e) => {
