@@ -24,26 +24,28 @@ class ClassComponent extends React.Component {
     };
 
     render() {
+        const { count, isVisible, inputText, color } = this.state;
+
         return (
             <div>
                 <div>
-                    <h5>Раздел с кнопкой, текущее значение: {this.state.count}</h5>
+                    <h5>Раздел с кнопкой, текущее значение: {count}</h5>
                     <button onClick={this.changeCount}>Нажми меня</button>
                 </div>
                 <div>
                     <h5>Раздел со скрываемым текстом</h5>
                     <button onClick={this.changeVisibility}>Скрыть/показать текст</button>
-                    {this.state.isVisible && <p>Текст</p>}
+                    {isVisible && <p>Текст</p>}
                 </div>
                 <div>
                     <h5>Раздел с инпутом</h5>
-                    <input value={this.state.inputText} onChange={this.handleInputChange} />
-                    <p>Введённый текст: {this.state.inputText}</p>
+                    <input value={inputText} onChange={this.handleInputChange} />
+                    <p>Введённый текст: {inputText}</p>
                 </div>
                 <div>
                     <h5>Раздел с цветом</h5>
                     <button onClick={this.setNewColor}>New color</button>
-                    <p style={{ color: this.state.color }}>Цветной текст</p>
+                    <p style={{ color }}>Цветной текст</p>
                 </div>
             </div>
         );
