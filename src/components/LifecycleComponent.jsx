@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 
 const LifecycleComponent = () => {
     const [users, setUsers] = useState([]);
@@ -35,7 +35,7 @@ const LifecycleComponent = () => {
     );
 };
 
-const SubComponent = React.memo(
+const SubComponent = memo(
     ({ count, users }) => {
         console.log('Render subComponent');
         return (
