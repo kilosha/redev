@@ -7,7 +7,7 @@ const ParentComponent = () => {
     const [counter, setCounter] = useState(0);
 
     const increment = () => {
-        setCounter(counter + 1);
+        setCounter((counter) => counter + 1);
     };
 
     const reset = () => {
@@ -20,7 +20,7 @@ const ParentComponent = () => {
     };
 
     const decrement = () => {
-        setCounter(counter > 0 ? counter - 1 : 0);
+        setCounter((counter) => (counter > 0 ? counter - 1 : 0));
     };
 
     return (
