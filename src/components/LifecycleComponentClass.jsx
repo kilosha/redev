@@ -7,11 +7,24 @@ class LifecycleComponentClass extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    async fetchData() {
+        try {
+            const response = await fetch(process.env.REACT_APP_BACKEND_URL + '/users?gender=male');
+            const data = await response.json();
+
+            if (!Array.isArray(data)) {
+                throw new Error(data.errors[0].msg);
+            }
+
+            this.setState({ users: data.slice(0, 10) });
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     componentDidMount() {
         console.log('componentDidMount');
-        fetch('https://todo-redev.herokuapp.com/api/users?gender=male')
-            .then((response) => response.json())
-            .then((users) => this.setState({ users: users.slice(0, 10) }));
+        this.fetchData();
     }
 
     componentDidUpdate() {
