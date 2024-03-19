@@ -29,11 +29,11 @@ const LifecycleComponent = () => {
     }, []);
 
     useEffect(() => {
-        console.log('componentDidUpdate'); // вызывается когда обновляются users и когда им сетается начальное значение в useEffect
+        console.log('componentDidUpdate'); // вызывается когда обновляются users и когда им сетается начальное значение в useState
     }, [users]);
 
     useEffect(() => {
-        console.log(`Текущий functional count: ${count}`); // вызывается когда обновляeтся count и когда им сетается начальное значение в useEffect
+        console.log(`Текущий functional count: ${count}`); // вызывается когда обновляeтся count и когда им сетается начальное значение в useState
     }, [count]);
 
     useEffect(() => {
