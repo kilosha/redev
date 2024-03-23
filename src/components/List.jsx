@@ -1,12 +1,14 @@
-const List = ({ users, handleUpdateBtnClick }) => {
+import styles from './List.module.css';
+
+const List = ({ users, handleUpdateBtnClick, theme }) => {
     return (
-        <ul style={{ margin: '20px' }}>
+        <ul className={theme === 'dark' && styles.dark}>
             {users &&
                 users.map((user) => (
                     <li key={user.id}>
                         {user.name}
                         <button
-                            style={{ marginLeft: '10px' }}
+                            className={theme === 'dark' && styles.dark}
                             onClick={() => handleUpdateBtnClick(user.id)}>
                             Update user
                         </button>

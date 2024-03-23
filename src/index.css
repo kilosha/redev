@@ -1,0 +1,21 @@
+:root[data-theme="light"] {
+    --background-color: #fafafa;
+}
+
+:root[data-theme="dark"] {
+    --background-color: #2b3e51;
+}
+
+body {
+    background: var(--background-color);
+}
+
+button.dark {
+    color: white;
+    background: gray;
+}
+
+input.dark {
+    background: gray;
+    color: white;
+}

@@ -1,0 +1,16 @@
+ul {
+    margin: 20px;
+}
+
+button {
+    margin-left: 10px;
+}
+
+ul.dark {
+    color: white;
+}
+
+button.dark {
+    color: white;
+    background: gray;
+}

@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import List from "./components/List";
+import { ThemeContext, themes } from "./contexts/ThemeContext";
 
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
     ]);
 
     const textInput = useRef(null);
+
+    const { theme, setTheme } = useContext(ThemeContext);
 
     const handleChange = (e) => {
         setNewUserName(e.target.value);
@@ -35,11 +38,18 @@ function App() {
         ));
     }
 
+    const changeTheme = () => {
+        setTheme(theme => theme === themes.light ? themes.dark : themes.light);
+    }
+
     return (
-        <div className="App">
-            <input ref={textInput} value={newUserName} onChange={handleChange} onKeyDown={handleKeyDown} />
-            <button onClick={handleClick}>Фокус</button>
-            <List users={users} handleUpdateBtnClick={handleUpdateBtnClick} />
+        <div>
+            <input className={theme === 'dark' && "dark"} ref={textInput} value={newUserName} onChange={handleChange} onKeyDown={handleKeyDown} />
+            <button className={theme === 'dark' && "dark"} onClick={handleClick}>Фокус</button>
+
+            <List users={users} handleUpdateBtnClick={handleUpdateBtnClick} theme={theme} />
+
+            <button className={theme === 'dark' && "dark"} onClick={changeTheme}>Change theme</button>
         </div>
     );
 }
